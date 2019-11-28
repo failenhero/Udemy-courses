@@ -152,11 +152,17 @@ console.log(answer);*/
 //btn.addEventListener('click', myAnimation);
 
 //Делегирование:
-let btnBlock = document.querySelector('.btn-block'),
-    btns = document.getElementsByTagName('button');
+//let btnBlock = document.querySelector('.btn-block'),
+//    btns = document.getElementsByTagName('button');
+//
+//btnBlock.addEventListener('click', function(event){
+//    if(event.target && event.target.tagName == 'BUTTON'){
+//        console.log('hello');
+//    }
+//});
 
-btnBlock.addEventListener('click', function(event){
-    if(event.target && event.target.tagName == 'BUTTON'){
-        console.log('hello');
-    }
-});
+//elem.getBoundingClientRect(); - свойство, позволяющее получить все границы элемента по правилам js (left, right, bottom, top);
+//document.documentElement.clientWidth - позволяет нам получить ширину самого документa
+//document.documentElement.scrollTop = 0; - возвращает нас к началу страницы, к самому верху
+//scrollBy(x, y); - перемещает нас по станице относительно нашего текущего местоположения на определённое кол-во координат (х и у соответсвтенно).
+//scrollTo(x, y); - перемещает нас в определённое место, заданное координатами х и у, вне зависимости от нашего текущего местоположения.
