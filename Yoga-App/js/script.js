@@ -90,7 +90,7 @@ window.addEventListener('DOMContentLoaded', function(){
     //Модальное окно
 
     let btnMore = document.querySelector('.more'),
-        btnDescription = document.querySelector('.description-btn'),
+        btnDescription = document.querySelectorAll('.description-btn'),
         close = document.querySelector('.popup-close'),
         overlay = document.querySelector('.overlay');
 
@@ -107,6 +107,8 @@ window.addEventListener('DOMContentLoaded', function(){
     });
 
     btnMore.addEventListener('click', modalWindow);
-    btnDescription.addEventListener('click', modalWindow);
+    for(let i= 0; i < btnDescription.length; i++){
+        btnDescription[i].addEventListener('click', modalWindow);
+    }
 
 });
