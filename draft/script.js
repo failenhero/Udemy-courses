@@ -166,3 +166,79 @@ console.log(answer);*/
 //document.documentElement.scrollTop = 0; - возвращает нас к началу страницы, к самому верху
 //scrollBy(x, y); - перемещает нас по станице относительно нашего текущего местоположения на определённое кол-во координат (х и у соответсвтенно).
 //scrollTo(x, y); - перемещает нас в определённое место, заданное координатами х и у, вне зависимости от нашего текущего местоположения.
+
+//Конструкторы и классы:
+/*function User(name, id) {
+    this.name = name;
+    this.id = id;
+    this.human = true;
+    this.hello = function(){
+        console.log('Hello, ' + this.name);
+    }
+}
+
+User.prototype.exit = function(name){
+    console.log('User ' + this.name + ' has left');
+}
+
+let ivan = new User('Ivan', 25),
+    alex = new User('Alex', 19);
+
+    console.log(ivan);
+    console.log(alex);
+
+ivan.exit(); */
+
+/*
+function showThis(a, b){
+    console.log(this);
+    function sum(){
+        console.log(this);
+        return a + b;
+    }
+    console.log(sum());
+}
+
+showThis(1, 3);
+showThis(4, 5);
+*/
+/*
+let obj = {
+    a: 20,
+    b: 5,
+    cont: function(){
+        console.log(this);
+        function shout(){
+            console.log(this);
+        }
+        shout();
+    }
+};
+
+obj.cont();
+*/
+/*
+let user = {
+    name: 'John'
+};
+
+function sayName(surname){
+    console.log(this);
+    console.log(this.name + surname);
+}
+
+console.log(sayName.call(user, 'Smith'));
+console.log(sayName.apply(user, ['Snow']));
+
+function count(number){
+    return this * number;
+}
+let double = count.bind(2);
+console.log(double(3));
+console.log(double(10));
+*/
+//Способы определения контекста функции (и через тире рещультат):
+//1) просто вызов функции - window/undefined
+//2) метод объекта - this = объект
+//3) конструктор (new) - this = новый созданный объёкт
+//4) указание конкретного контекста - .call/.apply/.bind

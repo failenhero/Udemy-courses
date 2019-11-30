@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', function(){
 
-    'use strict';
+    'use strickt';
     let tab = document.querySelectorAll('.info-header-tab'),
         info = document.querySelector('.info-header'),
         tabContent = document.querySelectorAll('.info-tabcontent');
@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
     //Timer
 
-    let deadline = '2019-11-29';
+    let deadline = '2019-12-31';
 
     function getTimeRemaining(endtime){
         let remainedTime = Date.parse(endtime) - Date.parse(new Date()),
@@ -61,12 +61,20 @@ window.addEventListener('DOMContentLoaded', function(){
             seconds = timer.querySelector('.seconds'),
             timeInterval = setInterval(updateClock, 1000);
 
+        function addZero(num){
+            if(num <= 9) {
+                return '0' + num;
+            } else {
+                return num;
+            }
+        }
+
         function updateClock() {
             let t = getTimeRemaining(endtime);
 
-            hours.textContent = t.hours;
-            minutes.textContent = t.minutes;
-            seconds.textContent = t.seconds;
+            hours.textContent = addZero(t.hours);
+            minutes.textContent = addZero(t.minutes);
+            seconds.textContent = addZero(t.seconds);
 
             if (t.total <= 0){
                 clearInterval(timeInterval);
@@ -78,4 +86,27 @@ window.addEventListener('DOMContentLoaded', function(){
     }
 
     setClock('timer', deadline);
+
+    //Модальное окно
+
+    let btnMore = document.querySelector('.more'),
+        btnDescription = document.querySelector('.description-btn'),
+        close = document.querySelector('.popup-close'),
+        overlay = document.querySelector('.overlay');
+
+    let modalWindow = function(){
+        overlay.style.display = 'block';
+        this.classList.add('more-splash');
+        document.body.style.overflow = 'hidden'; //запрещает прокрутку страницы
+    };
+
+    close.addEventListener('click', function(){
+        overlay.style.display = 'none';
+        this.classList.remove('more-splash');
+        document.body.style.overflow = 'visible'; //разрешает прокрутку страницы
+    });
+
+    btnMore.addEventListener('click', modalWindow);
+    btnDescription.addEventListener('click', modalWindow);
+
 });
