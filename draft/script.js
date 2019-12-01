@@ -1,3 +1,4 @@
+//jshint esversion:6
 //alert("Hello, world!");
 
 /*var answer = confirm("Are you phueli tam?");
@@ -242,3 +243,35 @@ console.log(double(10));
 //2) метод объекта - this = объект
 //3) конструктор (new) - this = новый созданный объёкт
 //4) указание конкретного контекста - .call/.apply/.bind
+
+//интерполяция:
+/*let name = 'Ivan',
+    age = 34,
+    mail = '34@mail.ru';
+
+document.write(`Пользователю ${name} ${age} лет. Его почта: ${mail}.`);
+*/
+
+
+function makeArray(){
+    var items = [];
+
+    for (let i = 0; i < 10; i++) {
+        var item = function(){
+            console.log(i);
+        };
+        items.push(item);
+    }
+
+    return items;
+}
+
+var arr =makeArray();
+console.log(arr);
+arr[1]();
+arr[3]();
+arr[7]();
+
+    let fun = () => {
+
+    };
