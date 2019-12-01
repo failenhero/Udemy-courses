@@ -252,26 +252,57 @@ console.log(double(10));
 document.write(`Пользователю ${name} ${age} лет. Его почта: ${mail}.`);
 */
 
+let fun = () => {
+    console.log(this);
+};
 
-function makeArray(){
-    var items = [];
+fun();
 
-    for (let i = 0; i < 10; i++) {
-        var item = function(){
-            console.log(i);
+let obj = {
+    number: 6,
+    sayNumber: function(){
+        let say = () => {
+            console.log(this);
         };
-        items.push(item);
+        say();
     }
+};
 
-    return items;
+obj.sayNumber();
+
+function calrOrDouble (number, basis = 2) {
+    //basis = basis || 2; ES5
+    console.log(number * basis);
+}
+calrOrDouble(5, 3);
+calrOrDouble(7);
+
+class Rectangle {
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }
+    calcArea() {
+        return this.height * this.width;
+    }
 }
 
-var arr =makeArray();
-console.log(arr);
-arr[1]();
-arr[3]();
-arr[7]();
+const square = new Rectangle(4,4);
+console.log(square.calcArea());
 
-    let fun = () => {
+//spread
 
-    };
+let video = ['youtube', 'vimeo', 'rutube'],
+    blogs = ['TJ', 'vdud', 'blogger'],
+    internet = [...video, ...blogs, 'vk', 'facebook'];
+
+console.log(internet);
+
+function log (a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+
+}
+
+log(...video);
