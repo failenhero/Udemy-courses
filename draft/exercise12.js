@@ -16,5 +16,5 @@ class Options {
     }
 }
 
-const item = new Options(200, 300, 'red', 14, 'center');
+const item = new Options(200, 300, 'grey', 14, 'center');
 item.createDiv();
