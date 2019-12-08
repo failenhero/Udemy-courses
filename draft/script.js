@@ -1,4 +1,4 @@
-//jshint esversion:6
+//jshint esversion: 6
 //alert("Hello, world!");
 
 /*var answer = confirm("Are you phueli tam?");
@@ -323,6 +323,8 @@ let options = {
 console.log(JSON.parse(JSON.stringify(options)));
 */
 
+//Программа "конвертер валют"
+/*
 let inputRub = document.getElementById('rub'),
     inputUsd = document.getElementById('usd');
 
@@ -349,3 +351,41 @@ inputRub.addEventListener('input', () => {
         }
     });
 });
+*/
+
+//Promis (промисы)
+
+let drink = 1;
+
+function shoot(arrow){
+    console.log('Вы сделали выстрел...');
+    
+    let promise = new Promise(function(resolve, reject){
+        setTimeout(function(){
+            Math.random() > .5 ? resolve({}) : reject("Вы промахнулись");
+        }, 3000);
+    });
+    return promise;
+}
+
+function win(){
+    console.log('Мы победили!');
+    (drink == 1) ? buyBeer() : giveMoney();
+}
+
+function buyBeer(){
+    console.log('Вам купили пива');
+}
+
+function giveMoney(){
+    console.log('Вам заплатили');
+}
+
+function loose(){
+    console.log('Мы проиграли...');
+}
+
+shoot({})
+        .then(mark => console.log('Вы попали в цель'))
+        .then(win)
+        .catch(loose);
