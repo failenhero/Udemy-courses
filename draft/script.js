@@ -354,7 +354,7 @@ inputRub.addEventListener('input', () => {
 */
 
 //Promis (промисы)
-
+/*
 let drink = 1;
 
 function shoot(arrow){
@@ -389,3 +389,27 @@ shoot({})
         .then(mark => console.log('Вы попали в цель'))
         .then(win)
         .catch(loose);
+*/
+
+//Local Storage
+
+localStorage.setItem('number', 1);
+console.log(localStorage.getItem('number'));
+localStorage.removeItem('number');
+localStorage.clear();
+
+
+// Errors. Try...catch
+
+try {
+    console.log('Начинаем работу...');
+    console.log(aaa);
+    console.log(' и вот результат');
+} catch(error) {
+    console.log(error.name);
+    console.log(error.message);
+    console.log(error.stack); // набор вызовов, приведших к данной ошибке
+
+    console.log(`Мы получили ошибку: ${error.name});
+    }`);
+}
